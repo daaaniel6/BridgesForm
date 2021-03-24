@@ -5,21 +5,22 @@
  */
 package servicio;
 
+import static config.Constants.PERSISTENCE_UNIT_NAME;
+import entidades.Columna;
+import entidades.Fila;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import static config.Constants.PERSISTENCE_UNIT_NAME;
-import entidades.Columna;
 
 /**
  *
  * @author daniel
  */
+
 @Stateless
 @LocalBean
-public class ColumnaServicio {
-    
+public class FilaServicio {
     @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
     private EntityManager entityManager;
 
@@ -27,16 +28,14 @@ public class ColumnaServicio {
         this.entityManager = entityManager;
     }
     
-    public Columna createColumna(Columna columna) throws Exception{
-        entityManager.persist(columna);
-        return columna;
+    public Fila createColumna(Fila fila) throws Exception{
+        entityManager.persist(fila);
+        return fila;
     }
     
-    public Columna editColumna(Columna columna){
-        entityManager.merge(columna);
-        return columna;
+    public Fila editColumna(Fila fila){
+        entityManager.merge(fila);
+        return fila;
     }
-    
-    
     
 }

@@ -5,21 +5,21 @@
  */
 package servicio;
 
+import static config.Constants.PERSISTENCE_UNIT_NAME;
+import entidades.IdentificacionPuente;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import static config.Constants.PERSISTENCE_UNIT_NAME;
-import entidades.Columna;
 
 /**
  *
  * @author daniel
  */
+
 @Stateless
 @LocalBean
-public class ColumnaServicio {
-    
+public class IdentificacionPuenteServicio {
     @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
     private EntityManager entityManager;
 
@@ -27,16 +27,15 @@ public class ColumnaServicio {
         this.entityManager = entityManager;
     }
     
-    public Columna createColumna(Columna columna) throws Exception{
-        entityManager.persist(columna);
-        return columna;
+    public IdentificacionPuente createIdentificacion(IdentificacionPuente identificacionPuente) throws Exception{
+        entityManager.persist(identificacionPuente);
+        return identificacionPuente;
     }
     
-    public Columna editColumna(Columna columna){
-        entityManager.merge(columna);
-        return columna;
+    public IdentificacionPuente editIdentificacion(IdentificacionPuente identificacionPuente){
+        entityManager.merge(identificacionPuente);
+        return identificacionPuente;
     }
-    
     
     
 }

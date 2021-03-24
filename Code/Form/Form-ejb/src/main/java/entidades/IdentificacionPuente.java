@@ -8,6 +8,7 @@ package entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -76,10 +77,10 @@ public class IdentificacionPuente implements Serializable {
     private String poblacionAntes;
     @Column(name = "poblacionDespues")
     private String poblacionDespues;
-    @OneToMany(mappedBy = "puente")
+    @OneToMany(mappedBy = "puente",cascade = CascadeType.ALL)
     private List<Tramo> tramoList;
     @JoinColumn(name = "DatosGenerales_idDatosGenerales", referencedColumnName = "idDatosGenerales")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private DatosGenerales datosGeneralesidDatosGenerales;
     @OneToMany(mappedBy = "puente")
     private List<Tabla> tablaList;

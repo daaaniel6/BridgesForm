@@ -5,12 +5,12 @@
  */
 package servicio;
 
+import static config.Constants.PERSISTENCE_UNIT_NAME;
+import entidades.Tramo;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import static config.Constants.PERSISTENCE_UNIT_NAME;
-import entidades.Columna;
 
 /**
  *
@@ -18,8 +18,7 @@ import entidades.Columna;
  */
 @Stateless
 @LocalBean
-public class ColumnaServicio {
-    
+public class TramoServicio {
     @PersistenceContext(name = PERSISTENCE_UNIT_NAME)
     private EntityManager entityManager;
 
@@ -27,16 +26,13 @@ public class ColumnaServicio {
         this.entityManager = entityManager;
     }
     
-    public Columna createColumna(Columna columna) throws Exception{
-        entityManager.persist(columna);
-        return columna;
+    public Tramo createColumna(Tramo tramo) throws Exception{
+        entityManager.persist(tramo);
+        return tramo;
     }
     
-    public Columna editColumna(Columna columna){
+    public Tramo editColumna(Tramo columna){
         entityManager.merge(columna);
         return columna;
     }
-    
-    
-    
 }
