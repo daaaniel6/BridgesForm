@@ -1,0 +1,81 @@
+/* AUTOMATICALLY GENERATED ON Wed Mar 03 20:03:30 CST 2021*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.WebResourcePermission "/:/inventory/*:/product/searchProduct.xhtml:/supplies/*:/design/*:/group/*:/production/*:/user/userProfile.xhtml:/user/users.xhtml:/principal.xhtml:/templates/*:/product/createProduct.xhtml:/user/createUser.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/production/*";
+  permission javax.security.jacc.WebUserDataPermission "/group/*";
+  permission javax.security.jacc.WebUserDataPermission "/product/searchProduct.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/:/inventory/*:/product/searchProduct.xhtml:/supplies/*:/design/*:/group/*:/production/*:/user/userProfile.xhtml:/user/users.xhtml:/principal.xhtml:/templates/*:/product/createProduct.xhtml:/user/createUser.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/supplies/*";
+  permission javax.security.jacc.WebUserDataPermission "/principal.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/templates/*";
+  permission javax.security.jacc.WebUserDataPermission "/product/createProduct.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/user/users.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/design/*";
+  permission javax.security.jacc.WebUserDataPermission "/user/userProfile.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/user/createUser.xhtml";
+  permission javax.security.jacc.WebUserDataPermission "/inventory/*";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "**";
+  permission javax.security.jacc.WebRoleRefPermission "", "**";
+  permission javax.security.jacc.WebRoleRefPermission "Faces Servlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "default", "**";
+};
+
+grant      principal org.glassfish.security.common.Group "Administrador" {
+  permission javax.security.jacc.WebResourcePermission "/production/*";
+  permission javax.security.jacc.WebResourcePermission "/inventory/*";
+  permission javax.security.jacc.WebResourcePermission "/supplies/*";
+  permission javax.security.jacc.WebResourcePermission "/templates/*";
+  permission javax.security.jacc.WebResourcePermission "/user/createUser.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/product/createProduct.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/user/users.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/design/*";
+  permission javax.security.jacc.WebResourcePermission "/product/searchProduct.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/user/userProfile.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/principal.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/group/*";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "Administrador";
+  permission javax.security.jacc.WebRoleRefPermission "", "Administrador";
+  permission javax.security.jacc.WebRoleRefPermission "default", "Administrador";
+  permission javax.security.jacc.WebRoleRefPermission "Faces Servlet", "Administrador";
+};
+
+grant      principal org.glassfish.security.common.Group "Estudiante" {
+  permission javax.security.jacc.WebResourcePermission "/user/users.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/production/*";
+  permission javax.security.jacc.WebResourcePermission "/design/*";
+  permission javax.security.jacc.WebResourcePermission "/product/searchProduct.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/inventory/*";
+  permission javax.security.jacc.WebResourcePermission "/supplies/*";
+  permission javax.security.jacc.WebResourcePermission "/user/userProfile.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/principal.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/group/*";
+  permission javax.security.jacc.WebRoleRefPermission "default", "Estudiante";
+  permission javax.security.jacc.WebRoleRefPermission "", "Estudiante";
+  permission javax.security.jacc.WebRoleRefPermission "Faces Servlet", "Estudiante";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "Estudiante";
+};
+
+grant      principal org.glassfish.security.common.Group "Docente" {
+  permission javax.security.jacc.WebResourcePermission "/production/*";
+  permission javax.security.jacc.WebResourcePermission "/inventory/*";
+  permission javax.security.jacc.WebResourcePermission "/supplies/*";
+  permission javax.security.jacc.WebResourcePermission "/templates/*";
+  permission javax.security.jacc.WebResourcePermission "/user/createUser.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/product/createProduct.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/user/users.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/design/*";
+  permission javax.security.jacc.WebResourcePermission "/product/searchProduct.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/user/userProfile.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/principal.xhtml";
+  permission javax.security.jacc.WebResourcePermission "/group/*";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "Docente";
+  permission javax.security.jacc.WebRoleRefPermission "default", "Docente";
+  permission javax.security.jacc.WebRoleRefPermission "", "Docente";
+  permission javax.security.jacc.WebRoleRefPermission "Faces Servlet", "Docente";
+};
+

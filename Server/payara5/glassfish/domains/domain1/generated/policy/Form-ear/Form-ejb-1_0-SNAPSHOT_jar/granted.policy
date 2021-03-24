@@ -1,0 +1,49 @@
+/* AUTOMATICALLY GENERATED ON Fri Mar 19 18:55:09 CST 2021*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "TablaServicio", "createColumna,Local,entidades.Tabla";
+  permission javax.security.jacc.EJBMethodPermission "IdentificacionPuenteServicio", "editIdentificacion,Local,entidades.IdentificacionPuente";
+  permission javax.security.jacc.EJBMethodPermission "TramoServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+  permission javax.security.jacc.EJBMethodPermission "ColumnaServicio", "createColumna,Local,entidades.Columna";
+  permission javax.security.jacc.EJBMethodPermission "DatosGenerealesServicio", "createDatosGenerales,Local,entidades.DatosGenerales";
+  permission javax.security.jacc.EJBMethodPermission "ImagenServicio", "editColumna,Local,entidades.Imagen";
+  permission javax.security.jacc.EJBMethodPermission "TablaServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+  permission javax.security.jacc.EJBMethodPermission "InspectorServicio", "createColumna,Local,entidades.Inspector";
+  permission javax.security.jacc.EJBMethodPermission "TramoServicio", "editColumna,Local,entidades.Tramo";
+  permission javax.security.jacc.EJBMethodPermission "TablaServicio", "editColumna,Local,entidades.Tabla";
+  permission javax.security.jacc.EJBMethodPermission "TramoServicio", "createColumna,Local,entidades.Tramo";
+  permission javax.security.jacc.EJBMethodPermission "IdentificacionPuenteFachada", "createIdentificacion,Local,entidades.IdentificacionPuente";
+  permission javax.security.jacc.EJBMethodPermission "ColumnaServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+  permission javax.security.jacc.EJBMethodPermission "IdentificacionPuenteServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+  permission javax.security.jacc.EJBMethodPermission "InspectorServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+  permission javax.security.jacc.EJBMethodPermission "FilaServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+  permission javax.security.jacc.EJBMethodPermission "FilaServicio", "createColumna,Local,entidades.Fila";
+  permission javax.security.jacc.EJBMethodPermission "ImagenServicio", "createColumna,Local,entidades.Imagen";
+  permission javax.security.jacc.EJBMethodPermission "InspectorServicio", "editColumna,Local,entidades.Inspector";
+  permission javax.security.jacc.EJBMethodPermission "IdentificacionPuenteServicio", "createIdentificacion,Local,entidades.IdentificacionPuente";
+  permission javax.security.jacc.EJBMethodPermission "ColumnaServicio", "editColumna,Local,entidades.Columna";
+  permission javax.security.jacc.EJBMethodPermission "FilaServicio", "editColumna,Local,entidades.Fila";
+  permission javax.security.jacc.EJBMethodPermission "ImagenServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+  permission javax.security.jacc.EJBMethodPermission "DatosGenerealesServicio", "setEntityManager,Local,javax.persistence.EntityManager";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "ImagenFachada", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "IdentificacionPuenteServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TramoServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TramoFachada", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "InspectorServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TablaFachada", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ColumnaServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ColumnaFachada", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "InspectorFachada", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "FilaFachada", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "DatosGenerealesServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "IdentificacionPuenteFachada", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ImagenServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TablaServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "FilaServicio", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "DatosGenerealesFachada", "**";
+};
+
