@@ -40,7 +40,7 @@ and open the template in the editor.
         <!-- Template Main CSS File -->
         <link href="assets/css/style.css" rel="stylesheet"/>
 
-       
+
 
     </h:head>
     <body>
@@ -315,19 +315,19 @@ and open the template in the editor.
                 <tr>
                     <td >Longitud</td>
                     <td > 
-                       <p:spinner  value="#{formView.tramo1.longitud}" min="0"  stepFactor="1" />
+                        <p:spinner  value="#{formView.tramo1.longitud}" min="0"  stepFactor="1" />
                     </td>
                     <td >Longitud</td>
                     <td > 
-                       <p:spinner  value="#{formView.tramo2.longitud}" min="0"  stepFactor="1" />
+                        <p:spinner  value="#{formView.tramo2.longitud}" min="0"  stepFactor="1" />
                     </td><!-- comment -->
                     <td >Longitud</td>
                     <td > 
-                       <p:spinner  value="#{formView.tramo3.longitud}" min="0"  stepFactor="1" />
+                        <p:spinner  value="#{formView.tramo3.longitud}" min="0"  stepFactor="1" />
                     </td>
                     <td >Longitud</td>
                     <td > 
-                       <p:spinner  value="#{formView.tramo4.longitud}" min="0"  stepFactor="1" />
+                        <p:spinner  value="#{formView.tramo4.longitud}" min="0"  stepFactor="1" />
                     </td>
                 </tr>
                 <tr>
@@ -336,13 +336,189 @@ and open the template in the editor.
                         <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
                     </td>
                     <td colspan="2"> 
-                       <p:inputText  value="#{formView.tramo2.tipoSeccion}"    styleClass="form-control"/>
+                        <p:inputText  value="#{formView.tramo2.tipoSeccion}"    styleClass="form-control"/>
                     </td> 
                     <td colspan="2"> 
-                       <p:inputText  value="#{formView.tramo3.tipoSeccion}"    styleClass="form-control"/>
+                        <p:inputText  value="#{formView.tramo3.tipoSeccion}"    styleClass="form-control"/>
                     </td>
                     <td colspan="2"> 
-                       <p:inputText  value="#{formView.tramo4.tipoSeccion}"    styleClass="form-control"/>
+                        <p:inputText  value="#{formView.tramo4.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table table-bordered table-dark">
+                <tr>
+                    <th >*</th>
+                    <th >Material</th>
+                    <th >Altura (m)</th>
+                    <th >Ancho (m)</th>
+                    <th >Grietas en una direccion</th>
+                    <th >Grietas en dos direcciones</th>
+                    <th >Perdida de petreos por golpe</th>
+                    <th >Expocicion de acero</th>
+                    <th >Otros</th>
+                </tr>
+                <tr>
+                    <td >Cortina Superior</td>
+                    <td > 
+                        <p:inputText  value="#{formView.tablas.getColumnaEstriboEntrada("CortinaSuperior", "Material").atributo}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td><!-- comment -->
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Cortina inferior</td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td><!-- comment -->
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Viga de apoyo</td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td><!-- comment -->
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Columnas</td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td><!-- comment -->
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                 <tr>
+                    <td >Aletones aguas arriba</td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td><!-- comment -->
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                 <tr>
+                    <td >Aletones aguas abajo</td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td><!-- comment -->
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td >
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                    </td>
+                    <td > 
+                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
                     </td>
                 </tr>
             </table>
@@ -353,15 +529,6 @@ and open the template in the editor.
                            >
                 Guardar
             </p:commandLink>
-            <p:commandButton action="#{formView.createBridge()}" ajax="true">
-
-            </p:commandButton>
-
-
-
-
-
-
 
 
 

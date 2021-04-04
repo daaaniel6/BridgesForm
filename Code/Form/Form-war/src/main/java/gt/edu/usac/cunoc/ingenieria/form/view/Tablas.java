@@ -8,56 +8,126 @@ package gt.edu.usac.cunoc.ingenieria.form.view;
 import entidades.Columna;
 import entidades.Fila;
 import entidades.Tabla;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author daniel
  */
-public class Tablas {
-    private Tabla tabla;
-    
-    private Fila cortinaSuperiorfila;
-    private Fila cortinaInferiorfila;
-    private Fila vigaApoyofila;
-    private Fila apoyosfila;
-    private Fila columnasfila;
-    private Fila cuerpofila;
-    private Fila aletonesfila;
-    private Fila aguasArribafila;
-    private Fila aguasAbajofila;
-    private Fila socavacionfila;
+@Named
+@ViewScoped
+public class Tablas implements Serializable{
+
+    private Tabla tablaEstriboEntrada;
 
     public Tablas() {
-        this.tabla = new Tabla();
-        
+        this.tablaEstriboEntrada = new Tabla();
+        createTablaEstriboEntrada(tablaEstriboEntrada);
+
     }
+
     
-    public void addFilasEstriboEntrada(Tabla tabla){
+    
+    public void createTablaEstriboEntrada(Tabla tabla) {
+        List<Fila> filas = this.addFilasEstriboEntrada(tablaEstriboEntrada);
+        for (int i = 0; i < filas.size(); i++) {
+            if (filas.get(i).getNombre().equals("Apoyos")) {
+                addColumsEstriboEntrada(filas.get(i));
+                //deleteColumn(filas.get(i), "Altura");
+                //deleteColumn(filas.get(i), "Ancho");
+                //deleteColumn(filas.get(i), "Altura");
+                //deleteColumn(filas.get(i), "Altura");
+                addColumn(filas.get(i), "NeoprenoAplastado");
+                addColumn(filas.get(i), "FueraDeLugar");
+                addColumn(filas.get(i), "Oxidado");
+                addColumn(filas.get(i), "FaltaPerno");
+                addColumn(filas.get(i), "PernoRoto");
+            }
+            if (filas.get(i).getNombre().equals("Socavacion")) {
+                addColumsEstriboEntrada(filas.get(i));
+                //deleteColumn(filas.get(i), "Altura");
+                //deleteColumn(filas.get(i), "Ancho");
+                //deleteColumn(filas.get(i), "Altura");
+                //deleteColumn(filas.get(i), "Altura");
+                addColumn(filas.get(i), "NoHay");
+                addColumn(filas.get(i), "SiPeroNoHay");
+                addColumn(filas.get(i), "SiHayExposicion");
+                addColumn(filas.get(i), "AsentamientoDe");
+            }
+            if (filas.get(i).getNombre().equals("AguasArriba")) {
+                addColumsEstriboEntrada(filas.get(i));
+
+                addColumn(filas.get(i), "Largo");
+
+            }
+            if (filas.get(i).getNombre().equals("AguasAbajo")) {
+                addColumsEstriboEntrada(filas.get(i));
+
+                addColumn(filas.get(i), "Largo");
+
+            } else {
+                addColumsEstriboEntrada(filas.get(i));
+
+            }
+        }
+
+    }
+
+    public void deleteColumn(Fila fila, String nombre) {
+        for (int i = 0; i < fila.getColumnaList().size(); i++) {
+            if (fila.getColumnaList().get(i).getNombre().equals(nombre)) {
+                fila.getColumnaList().remove(fila.getColumnaList().get(i));
+            }
+        }
+    }
+
+    public void addColumn(Fila fila, String nombre) {
+        Columna columna = new Columna();
+        columna.setNombre(nombre);
+        fila.getColumnaList().add(columna);
+    }
+
+    public List<Fila> addFilasEstriboEntrada(Tabla tabla) {
+        Fila cortinaSuperiorfila = new Fila();
+        Fila cortinaInferiorfila = null;
+        Fila vigaApoyofila;
+        //private Fila apoyosfila;
+        Fila columnasfila;
+        Fila cuerpofila;
+        Fila aletonesfila;
+        Fila aguasArribafila;
+        Fila aguasAbajofila;
+        //private Fila socavacionfila;
+
         List<Fila> filaList = new ArrayList<>();
-        
-        this.cortinaSuperiorfila = new Fila();
-        cortinaInferiorfila.setNombre("CortinaSuperior");
-        this.cortinaInferiorfila = new Fila();
+
+        cortinaSuperiorfila = new Fila();
+        cortinaSuperiorfila.setNombre("CortinaSuperior");
+        cortinaInferiorfila = new Fila();
         cortinaInferiorfila.setNombre("CortinaInferior");
-        this.vigaApoyofila =  new Fila();
+        vigaApoyofila = new Fila();
         vigaApoyofila.setNombre("VigaDeApoyo");
-        this.apoyosfila =  new Fila();
-        apoyosfila.setNombre("Apoyos");
-        this.columnasfila =  new Fila();
+
+        columnasfila = new Fila();
         columnasfila.setNombre("Columnas");
-        this.cuerpofila = new Fila();
+        cuerpofila = new Fila();
         cuerpofila.setNombre("Cuerpo");
-        this.aletonesfila =  new Fila();
-        
-        this.aguasArribafila =  new Fila();
+        aletonesfila = new Fila();
+
+        aguasArribafila = new Fila();
         aguasArribafila.setNombre("AguasArriba");
-        this.aguasAbajofila =  new Fila();
+        aguasAbajofila = new Fila();
         aguasAbajofila.setNombre("AguasAbajo");
-        this.socavacionfila =  new Fila();
+
+        Fila apoyosfila = new Fila();
+        apoyosfila.setNombre("Apoyos");
+        Fila socavacionfila = new Fila();
         socavacionfila.setNombre("Socavacion");
-        
+
         filaList.add(cortinaSuperiorfila);
         filaList.add(cortinaInferiorfila);
         filaList.add(vigaApoyofila);
@@ -67,31 +137,30 @@ public class Tablas {
         filaList.add(aguasArribafila);
         filaList.add(aguasAbajofila);
         filaList.add(socavacionfila);
-        
-        
-        
+
         tabla.setFilaList(filaList);
+        return filaList;
+
     }
 
-    
-    public void addColums(Fila fila){
-        Columna  materialcolumna = new Columna();
+    public List<Columna> addColumsEstriboEntrada(Fila fila) {
+        Columna materialcolumna = new Columna();
         materialcolumna.setNombre("Material");
-        Columna  alturacolumna = new Columna();
+        Columna alturacolumna = new Columna();
         alturacolumna.setNombre("Altura");
-        Columna  anchocolumna = new Columna();
+        Columna anchocolumna = new Columna();
         anchocolumna.setNombre("Ancho");
-        Columna  grietasUnaDireccioncolumna = new Columna();
+        Columna grietasUnaDireccioncolumna = new Columna();
         grietasUnaDireccioncolumna.setNombre("GrietasEnUnaDireccion");
-        Columna  grietasDosDireccioncolumna = new Columna();
+        Columna grietasDosDireccioncolumna = new Columna();
         grietasDosDireccioncolumna.setNombre("GrietasEnDosDirecciones");
-        Columna  perdidacolumna = new Columna();
+        Columna perdidacolumna = new Columna();
         perdidacolumna.setNombre("PerdidaDePetreosPorGolpe");
-        Columna  exposicioncolumna = new Columna();
+        Columna exposicioncolumna = new Columna();
         exposicioncolumna.setNombre("ExpocicionDeAcero");
-        Columna  otroscolumna = new Columna();
+        Columna otroscolumna = new Columna();
         otroscolumna.setNombre("Otros");
-        
+
         List<Columna> columnaList = new ArrayList<>();
         columnaList.add(materialcolumna);
         columnaList.add(alturacolumna);
@@ -101,103 +170,31 @@ public class Tablas {
         columnaList.add(materialcolumna);
         columnaList.add(materialcolumna);
         columnaList.add(materialcolumna);
-        
+
         fila.setColumnaList(columnaList);
-    }
-    
-    
-    
-    
-    public Tabla getTabla() {
-        return tabla;
+        return columnaList;
     }
 
-    public void setTabla(Tabla tabla) {
-        this.tabla = tabla;
-    }
-
-    public Fila getCortinaSuperiorfila() {
-        return cortinaSuperiorfila;
-    }
-
-    public void setCortinaSuperiorfila(Fila cortinaSuperiorfila) {
-        this.cortinaSuperiorfila = cortinaSuperiorfila;
-    }
-
-    public Fila getCortinaInferiorfila() {
-        return cortinaInferiorfila;
-    }
-
-    public void setCortinaInferiorfila(Fila cortinaInferiorfila) {
-        this.cortinaInferiorfila = cortinaInferiorfila;
-    }
-
-    public Fila getVigaApoyofila() {
-        return vigaApoyofila;
-    }
-
-    public void setVigaApoyofila(Fila vigaApoyofila) {
-        this.vigaApoyofila = vigaApoyofila;
-    }
-
-    public Fila getApoyosfila() {
-        return apoyosfila;
-    }
-
-    public void setApoyosfila(Fila apoyosfila) {
-        this.apoyosfila = apoyosfila;
-    }
-
-    public Fila getColumnasfila() {
-        return columnasfila;
-    }
-
-    public void setColumnasfila(Fila columnasfila) {
-        this.columnasfila = columnasfila;
-    }
-
-    public Fila getCuerpofila() {
-        return cuerpofila;
-    }
-
-    public void setCuerpofila(Fila cuerpofila) {
-        this.cuerpofila = cuerpofila;
-    }
-
-    public Fila getAletonesfila() {
-        return aletonesfila;
-    }
-
-    public void setAletonesfila(Fila aletonesfila) {
-        this.aletonesfila = aletonesfila;
-    }
-
-    public Fila getAguasArribafila() {
-        return aguasArribafila;
-    }
-
-    public void setAguasArribafila(Fila aguasArribafila) {
-        this.aguasArribafila = aguasArribafila;
-    }
-
-    public Fila getAguasAbajofila() {
-        return aguasAbajofila;
-    }
-
-    public void setAguasAbajofila(Fila aguasAbajofila) {
-        this.aguasAbajofila = aguasAbajofila;
-    }
-
-    public Fila getSocavacionfila() {
-        return socavacionfila;
-    }
-
-    public void setSocavacionfila(Fila socavacionfila) {
-        this.socavacionfila = socavacionfila;
-    }
-
+    public Columna getColumnaEstriboEntrada(String fila, String columna) {
+        for (int i = 0; i < this.tablaEstriboEntrada.getFilaList().size(); i++) {
+            if (this.tablaEstriboEntrada.getFilaList().get(i).getNombre().equals(fila)) {
+                for (int j = 0; j < this.tablaEstriboEntrada.getFilaList().get(i).getColumnaList().size(); j++) {
+                    if(this.tablaEstriboEntrada.getFilaList().get(i).getColumnaList().get(j).getNombre().equals(columna)){
+                        return this.tablaEstriboEntrada.getFilaList().get(i).getColumnaList().get(j);
+                    }
+                }
+            }
+        }
         
-    
-    
-    
+        return null;
+    }
+
+    public Tabla getTablaEstriboEntrada() {
+        return tablaEstriboEntrada;
+    }
+
+    public void setTablaEstriboEntrada(Tabla tablaEstriboEntrada) {
+        this.tablaEstriboEntrada = tablaEstriboEntrada;
+    }
+
 }

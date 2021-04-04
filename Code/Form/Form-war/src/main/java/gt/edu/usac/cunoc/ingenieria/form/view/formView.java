@@ -7,6 +7,7 @@ package gt.edu.usac.cunoc.ingenieria.form.view;
 
 import entidades.DatosGenerales;
 import entidades.IdentificacionPuente;
+import entidades.Tabla;
 import entidades.Tramo;
 import fachada.IdentificacionPuenteFachadaLocal;
 import java.io.Serializable;
@@ -44,6 +45,10 @@ public class formView implements Serializable{
     private Tramo tramo2;
     private Tramo tramo3;
     private Tramo tramo4;
+    
+    private List<Tabla> listaTablas;
+    
+    private Tablas tablas;
 
     @PostConstruct
     public void init() {
@@ -54,9 +59,17 @@ public class formView implements Serializable{
         tramo3 = new Tramo();
         tramo4 = new Tramo();
         //datosGenerales.setFechaUltimaEvaluacion(new Date());
+        listaTablas = new ArrayList<>();
+        tablas = new Tablas();
+        
+        
+        listaTablas.add(tablas.getTablaEstriboEntrada());
+        
     }
     
-    
+    public void getColumnaEstriboDeEntrada(){
+        
+    }
     
     
     public void createBridge() {
@@ -71,6 +84,7 @@ public class formView implements Serializable{
         listTramos.add(tramo3);
         listTramos.add(tramo4);
         identificacionPuente.setTramoList(listTramos);
+        identificacionPuente.setTablaList(listaTablas);
         identificacionPuenteFachadaLocal.createIdentificacion(identificacionPuente);
         addMessage("Se ha guardado la informacion");
         } catch (Exception e) {
@@ -130,6 +144,15 @@ public class formView implements Serializable{
     public void setTramo4(Tramo tramo4) {
         this.tramo4 = tramo4;
     }
+
+    public Tablas getTablas() {
+        return tablas;
+    }
+
+    public void setTablas(Tablas tablas) {
+        this.tablas = tablas;
+    }
+    
     
     
     
