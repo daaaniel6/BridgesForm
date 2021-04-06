@@ -8,6 +8,7 @@ package entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,10 +44,11 @@ public class Tabla implements Serializable {
     private String nombre;
     @Column(name = "comentario")
     private String comentario;
-    @JoinColumn(name = "puente", referencedColumnName = "idIdentificacion")
-    @ManyToOne
+    
+    @JoinColumn(name = "puente", referencedColumnName = "idIdentificacion",insertable = false, updatable = false)
+    @ManyToOne(optional = false)
     private IdentificacionPuente puente;
-    @OneToMany(mappedBy = "tabla")
+    @OneToMany(mappedBy = "tabla", cascade = CascadeType.ALL)
     private List<Fila> filaList;
 
     public Tabla() {
@@ -96,6 +98,21 @@ public class Tabla implements Serializable {
         this.filaList = filaList;
     }
 
+    
+    public Columna getColumna(String fila, String columna) {
+        for (int i = 0; i < this.getFilaList().size(); i++) {
+            if (this.getFilaList().get(i).getNombre().equals(fila)) {
+                for (int j = 0; j < this.getFilaList().get(i).getColumnaList().size(); j++) {
+                    if(this.getFilaList().get(i).getColumnaList().get(j).getNombre().equals(columna)){
+                        return this.getFilaList().get(i).getColumnaList().get(j);
+                    }
+                }
+            }
+        }
+        
+        return null;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

@@ -23,55 +23,71 @@ import javax.inject.Named;
 public class Tablas implements Serializable{
 
     private Tabla tablaEstriboEntrada;
+    private Tabla tablaEstriboSalida;
 
     public Tablas() {
         this.tablaEstriboEntrada = new Tabla();
+        this.tablaEstriboEntrada.setNombre("EstriboDeEntrada");
+        this.tablaEstriboSalida = new Tabla();
+        this.tablaEstriboSalida.setNombre("EstriboDeSalida");
         createTablaEstriboEntrada(tablaEstriboEntrada);
+        createTablaEstriboEntrada(tablaEstriboSalida);
 
     }
 
     
     
     public void createTablaEstriboEntrada(Tabla tabla) {
-        List<Fila> filas = this.addFilasEstriboEntrada(tablaEstriboEntrada);
+        List<Fila> filas = this.addFilasEstriboEntrada(tabla);
         for (int i = 0; i < filas.size(); i++) {
-            if (filas.get(i).getNombre().equals("Apoyos")) {
-                addColumsEstriboEntrada(filas.get(i));
-                //deleteColumn(filas.get(i), "Altura");
-                //deleteColumn(filas.get(i), "Ancho");
-                //deleteColumn(filas.get(i), "Altura");
-                //deleteColumn(filas.get(i), "Altura");
-                addColumn(filas.get(i), "NeoprenoAplastado");
-                addColumn(filas.get(i), "FueraDeLugar");
-                addColumn(filas.get(i), "Oxidado");
-                addColumn(filas.get(i), "FaltaPerno");
-                addColumn(filas.get(i), "PernoRoto");
-            }
-            if (filas.get(i).getNombre().equals("Socavacion")) {
-                addColumsEstriboEntrada(filas.get(i));
-                //deleteColumn(filas.get(i), "Altura");
-                //deleteColumn(filas.get(i), "Ancho");
-                //deleteColumn(filas.get(i), "Altura");
-                //deleteColumn(filas.get(i), "Altura");
-                addColumn(filas.get(i), "NoHay");
-                addColumn(filas.get(i), "SiPeroNoHay");
-                addColumn(filas.get(i), "SiHayExposicion");
-                addColumn(filas.get(i), "AsentamientoDe");
-            }
-            if (filas.get(i).getNombre().equals("AguasArriba")) {
-                addColumsEstriboEntrada(filas.get(i));
-
-                addColumn(filas.get(i), "Largo");
-
-            }
-            if (filas.get(i).getNombre().equals("AguasAbajo")) {
-                addColumsEstriboEntrada(filas.get(i));
-
-                addColumn(filas.get(i), "Largo");
-
-            } else {
-                addColumsEstriboEntrada(filas.get(i));
-
+            switch (filas.get(i).getNombre()) {
+                case "Apoyos":
+                    addColumsEstriboEntrada(filas.get(i));
+                    deleteColumn(filas.get(i), "Altura");
+                    deleteColumn(filas.get(i), "Ancho");
+                    deleteColumn(filas.get(i), "GrietasEnUnaDireccion");
+                    deleteColumn(filas.get(i), "GrietasEnDosDirecciones");
+                    deleteColumn(filas.get(i), "PerdidaDePetreosPorGolpe"); 
+                    deleteColumn(filas.get(i), "ExposicionDeAcero");
+                    addColumn(filas.get(i), "NeoprenoAplastado");
+                    addColumn(filas.get(i), "FueraDeLugar");
+                    addColumn(filas.get(i), "Oxidado");
+                    addColumn(filas.get(i), "FaltaPerno");
+                    addColumn(filas.get(i), "PernoRoto");
+                    break;
+                case "Cuerpo":
+                    addColumsEstriboEntrada(filas.get(i));
+                    deleteColumn(filas.get(i), "ExposicionDeAcero");
+                    break;
+                        
+                case "Socavacion":
+                    addColumsEstriboEntrada(filas.get(i));
+                    deleteColumn(filas.get(i), "Material");
+                    deleteColumn(filas.get(i), "Otros");
+                    deleteColumn(filas.get(i), "Altura");
+                    deleteColumn(filas.get(i), "Ancho");
+                    deleteColumn(filas.get(i), "GrietasEnUnaDireccion");
+                    deleteColumn(filas.get(i), "GrietasEnDosDirecciones");
+                    deleteColumn(filas.get(i), "PerdidaDePetreosPorGolpe");
+                    deleteColumn(filas.get(i), "ExposicionDeAcero");
+                    addColumn(filas.get(i), "NoHay");
+                    addColumn(filas.get(i), "SiPeroNoHay");
+                    addColumn(filas.get(i), "SiHayExposicion");
+                    addColumn(filas.get(i), "AsentamientoDe");
+                    break;
+                case "AguasArriba":
+                    addColumsEstriboEntrada(filas.get(i));
+                    deleteColumn(filas.get(i), "Altura");
+                    addColumn(filas.get(i), "Largo");
+                    break;
+                case "AguasAbajo":
+                    addColumsEstriboEntrada(filas.get(i));
+                    deleteColumn(filas.get(i), "Altura");
+                    addColumn(filas.get(i), "Largo");
+                    break;
+                default:
+                    addColumsEstriboEntrada(filas.get(i));
+                    break;
             }
         }
 
@@ -80,7 +96,7 @@ public class Tablas implements Serializable{
     public void deleteColumn(Fila fila, String nombre) {
         for (int i = 0; i < fila.getColumnaList().size(); i++) {
             if (fila.getColumnaList().get(i).getNombre().equals(nombre)) {
-                fila.getColumnaList().remove(fila.getColumnaList().get(i));
+                fila.getColumnaList().remove(i);
             }
         }
     }
@@ -157,7 +173,7 @@ public class Tablas implements Serializable{
         Columna perdidacolumna = new Columna();
         perdidacolumna.setNombre("PerdidaDePetreosPorGolpe");
         Columna exposicioncolumna = new Columna();
-        exposicioncolumna.setNombre("ExpocicionDeAcero");
+        exposicioncolumna.setNombre("ExposicionDeAcero");
         Columna otroscolumna = new Columna();
         otroscolumna.setNombre("Otros");
 
@@ -167,9 +183,9 @@ public class Tablas implements Serializable{
         columnaList.add(anchocolumna);
         columnaList.add(grietasUnaDireccioncolumna);
         columnaList.add(grietasDosDireccioncolumna);
-        columnaList.add(materialcolumna);
-        columnaList.add(materialcolumna);
-        columnaList.add(materialcolumna);
+        columnaList.add(perdidacolumna);
+        columnaList.add(exposicioncolumna);
+        columnaList.add(otroscolumna);
 
         fila.setColumnaList(columnaList);
         return columnaList;
@@ -196,5 +212,15 @@ public class Tablas implements Serializable{
     public void setTablaEstriboEntrada(Tabla tablaEstriboEntrada) {
         this.tablaEstriboEntrada = tablaEstriboEntrada;
     }
+
+    public Tabla getTablaEstriboSalida() {
+        return tablaEstriboSalida;
+    }
+
+    public void setTablaEstriboSalida(Tabla tablaEstriboSalida) {
+        this.tablaEstriboSalida = tablaEstriboSalida;
+    }
+    
+    
 
 }

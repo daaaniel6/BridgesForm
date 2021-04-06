@@ -8,6 +8,7 @@ package entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,9 +45,9 @@ public class Fila implements Serializable {
     @Column(name = "comentario")
     private String comentario;
     @JoinColumn(name = "tabla", referencedColumnName = "idTabla")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Tabla tabla;
-    @OneToMany(mappedBy = "fila")
+    @OneToMany(mappedBy = "fila", cascade = CascadeType.ALL)
     private List<Columna> columnaList;
 
     public Fila() {

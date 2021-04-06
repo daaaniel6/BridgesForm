@@ -7,6 +7,7 @@ package entidades;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,7 +46,7 @@ public class Columna implements Serializable {
     @Column(name = "comentario")
     private String comentario;
     @JoinColumn(name = "fila", referencedColumnName = "idFila")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Fila fila;
 
     public Columna() {

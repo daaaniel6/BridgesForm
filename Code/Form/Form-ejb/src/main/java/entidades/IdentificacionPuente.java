@@ -82,11 +82,11 @@ public class IdentificacionPuente implements Serializable {
     @JoinColumn(name = "DatosGenerales_idDatosGenerales", referencedColumnName = "idDatosGenerales")
     @ManyToOne(cascade = CascadeType.ALL)
     private DatosGenerales datosGeneralesidDatosGenerales;
-    @OneToMany(mappedBy = "puente")
+    @OneToMany(mappedBy = "puente",cascade = CascadeType.ALL)
     private List<Tabla> tablaList;
-    @OneToMany(mappedBy = "puente")
+    @OneToMany(mappedBy = "puente", cascade = CascadeType.ALL)
     private List<Inspector> inspectorList;
-    @OneToMany(mappedBy = "puente")
+    @OneToMany(mappedBy = "puente", cascade = CascadeType.ALL)
     private List<Imagen> imagenList;
 
     public IdentificacionPuente() {

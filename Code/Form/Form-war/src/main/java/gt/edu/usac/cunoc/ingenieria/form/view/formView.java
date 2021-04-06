@@ -5,6 +5,7 @@
  */
 package gt.edu.usac.cunoc.ingenieria.form.view;
 
+import entidades.Columna;
 import entidades.DatosGenerales;
 import entidades.IdentificacionPuente;
 import entidades.Tabla;
@@ -29,26 +30,29 @@ import javax.inject.Named;
  *
  * @author daniel
  */
-
 @Named
 @ViewScoped
-public class formView implements Serializable{
+public class formView implements Serializable {
+
     @EJB
     private IdentificacionPuenteFachadaLocal identificacionPuenteFachadaLocal;
-    
+
 //    @Inject
 //    private ExternalContext externalContext;
-    
     private IdentificacionPuente identificacionPuente;
     private DatosGenerales datosGenerales;
     private Tramo tramo1;
     private Tramo tramo2;
     private Tramo tramo3;
     private Tramo tramo4;
-    
+
     private List<Tabla> listaTablas;
-    
+
     private Tablas tablas;
+    private Tabla tablaEstriboEntrada;
+    private Tabla tablaEstriboSalida;
+
+    private Columna columna;
 
     @PostConstruct
     public void init() {
@@ -61,37 +65,38 @@ public class formView implements Serializable{
         //datosGenerales.setFechaUltimaEvaluacion(new Date());
         listaTablas = new ArrayList<>();
         tablas = new Tablas();
-        
-        
+
         listaTablas.add(tablas.getTablaEstriboEntrada());
-        
+        listaTablas.add(tablas.getTablaEstriboSalida());
+
+        tablaEstriboEntrada = tablas.getTablaEstriboEntrada();
+        tablaEstriboSalida = tablas.getTablaEstriboSalida();
+
     }
-    
-    public void getColumnaEstriboDeEntrada(){
-        
+
+    public void getColumnaEstriboDeEntrada() {
+
     }
-    
-    
+
     public void createBridge() {
-        
+
         try {
-            
-        
-        identificacionPuente.setDatosGeneralesidDatosGenerales(datosGenerales);
-        List<Tramo> listTramos = new ArrayList<>();
-        listTramos.add(tramo1);
-        listTramos.add(tramo2);
-        listTramos.add(tramo3);
-        listTramos.add(tramo4);
-        identificacionPuente.setTramoList(listTramos);
-        identificacionPuente.setTablaList(listaTablas);
-        identificacionPuenteFachadaLocal.createIdentificacion(identificacionPuente);
-        addMessage("Se ha guardado la informacion");
+
+            identificacionPuente.setDatosGeneralesidDatosGenerales(datosGenerales);
+            List<Tramo> listTramos = new ArrayList<>();
+            listTramos.add(tramo1);
+            listTramos.add(tramo2);
+            listTramos.add(tramo3);
+            listTramos.add(tramo4);
+            identificacionPuente.setTramoList(listTramos);
+            identificacionPuente.setTablaList(listaTablas);
+            identificacionPuenteFachadaLocal.createIdentificacion(identificacionPuente);
+            addMessage("Se ha guardado la informacion");
         } catch (Exception e) {
             addMessage(e.getMessage());
         }
     }
-    
+
     public void addMessage(String summary) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
         FacesContext.getCurrentInstance().addMessage(null, message);
@@ -152,8 +157,23 @@ public class formView implements Serializable{
     public void setTablas(Tablas tablas) {
         this.tablas = tablas;
     }
-    
-    
+
+    public Tabla getTablaEstriboEntrada() {
+        return tablaEstriboEntrada;
+    }
+
+    public void setTablaEstriboEntrada(Tabla tablaEstriboEntrada) {
+        this.tablaEstriboEntrada = tablaEstriboEntrada;
+    }
+
+    public Tabla getTablaEstriboSalida() {
+        return tablaEstriboSalida;
+    }
+
+    public void setTablaEstriboSalida(Tabla tablaEstriboSalida) {
+        this.tablaEstriboSalida = tablaEstriboSalida;
+    }
+
     
     
 }
