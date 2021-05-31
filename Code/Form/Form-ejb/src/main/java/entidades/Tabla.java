@@ -45,7 +45,7 @@ public class Tabla implements Serializable {
     @Column(name = "comentario")
     private String comentario;
     
-    @JoinColumn(name = "puente", referencedColumnName = "idIdentificacion",insertable = false, updatable = false)
+    @JoinColumn(name = "puente", referencedColumnName = "idIdentificacion", updatable = false)
     @ManyToOne(optional = false)
     private IdentificacionPuente puente;
     @OneToMany(mappedBy = "tabla", cascade = CascadeType.ALL)

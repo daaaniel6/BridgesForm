@@ -1573,3 +1573,41 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+
+.back{
+    
+    height: 100%;
+    width: 100%;
+    position: absolute;
+   
+    
+}
+
+.logo{
+    height: auto;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.button{
+    
+    height: 50px;
+    width: 100px;
+    background-color: teal;
+    position: absolute;
+    color: blanchedalmond;
+    
+    
+}
+
+.contenedor2 {
+margin: 10px auto;
+width: 100%;
+background-color: #E7F6F6;
+border: 1px solid #99cccc;
+display: flex;
+align-items: center;
+justify-content: center;
+}

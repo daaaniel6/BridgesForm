@@ -8,9 +8,12 @@ package gt.edu.usac.cunoc.ingenieria.form.view;
 import entidades.Columna;
 import entidades.DatosGenerales;
 import entidades.IdentificacionPuente;
+import entidades.Imagen;
+import entidades.Inspector;
 import entidades.Tabla;
 import entidades.Tramo;
 import fachada.IdentificacionPuenteFachadaLocal;
+import java.awt.Image;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -25,6 +28,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.StreamedContent;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -51,37 +57,71 @@ public class formView implements Serializable {
     private Tablas tablas;
     private Tabla tablaEstriboEntrada;
     private Tabla tablaEstriboSalida;
+    private Tabla tablaPilas;
+    private Tabla tablaSuperEstructura;
+    private Tabla tablaElementosNoEstructurales;
+    private Tabla tablaCarecteristicasDelCauce;
+    private Tabla tablaOtros;
 
-    private Columna columna;
+    
+    
+    private Inspector inspector;
+    private List<Inspector> inspectores;
+
+    private Imagen imageBridge;
+    private List<Imagen> listaImagenes;
+
+    private UploadedFile image;
+    private StreamedContent imageStream;
+    String nameImage = "";
 
     @PostConstruct
     public void init() {
         identificacionPuente = new IdentificacionPuente();
         datosGenerales = new DatosGenerales();
         tramo1 = new Tramo();
+        tramo1.setPuente(identificacionPuente);
         tramo2 = new Tramo();
+        tramo2.setPuente(identificacionPuente);
         tramo3 = new Tramo();
+        tramo3.setPuente(identificacionPuente);
         tramo4 = new Tramo();
-        //datosGenerales.setFechaUltimaEvaluacion(new Date());
+        tramo4.setPuente(identificacionPuente);
         listaTablas = new ArrayList<>();
         tablas = new Tablas();
 
-        listaTablas.add(tablas.getTablaEstriboEntrada());
-        listaTablas.add(tablas.getTablaEstriboSalida());
-
         tablaEstriboEntrada = tablas.getTablaEstriboEntrada();
         tablaEstriboSalida = tablas.getTablaEstriboSalida();
+        tablaPilas = tablas.getTablaPilas();
+        tablaSuperEstructura = tablas.getTablaSuperEstructura();
+        tablaElementosNoEstructurales = tablas.getTablaElementosNoEstructurales();
+        tablaCarecteristicasDelCauce = tablas.getTablaCarecteristicasDelCauce();
+        tablaOtros = tablas.getTablaOtros();
 
-    }
+        listaTablas.add(tablas.getTablaEstriboEntrada());
+        listaTablas.add(tablas.getTablaEstriboSalida());
+        listaTablas.add(tablas.getTablaPilas());
+        listaTablas.add(tablas.getTablaSuperEstructura());
+        listaTablas.add(tablas.getTablaElementosNoEstructurales());
+        listaTablas.add(tablas.getTablaCarecteristicasDelCauce());
+        listaTablas.add(tablas.getTablaOtros());
 
-    public void getColumnaEstriboDeEntrada() {
-
+        imageBridge = new Imagen();
+        listaImagenes = new ArrayList<>();
+        
+        
+        inspector = new Inspector();
+        inspector.setPuente(identificacionPuente);
+        inspectores = new ArrayList<>();
+        inspectores.add(inspector);
+        LlavesTablas(listaTablas);
+        
     }
 
     public void createBridge() {
 
         try {
-
+            LlavesTablas(listaTablas);
             identificacionPuente.setDatosGeneralesidDatosGenerales(datosGenerales);
             List<Tramo> listTramos = new ArrayList<>();
             listTramos.add(tramo1);
@@ -90,13 +130,56 @@ public class formView implements Serializable {
             listTramos.add(tramo4);
             identificacionPuente.setTramoList(listTramos);
             identificacionPuente.setTablaList(listaTablas);
+            LlavesTablas(listaTablas);
+            for (int i = 0; i < listaTablas.size(); i++) {
+                listaTablas.get(i).setPuente(identificacionPuente);
+            }
+
+            if (image != null) {
+                //getContents Devuelve el arreglo de bytes
+                imageBridge.setImagen(image.getContents());
+                imageBridge.setComentario(nameImage);
+                imageBridge.setPuente(identificacionPuente);
+                listaImagenes.add(imageBridge);
+                identificacionPuente.setImagenList(listaImagenes);
+
+            } else {
+                //MessageUtils.addErrorMessage(ERROR_PICTURE);
+            }
+            
+            identificacionPuente.setInspectorList(inspectores);
             identificacionPuenteFachadaLocal.createIdentificacion(identificacionPuente);
             addMessage("Se ha guardado la informacion");
         } catch (Exception e) {
             addMessage(e.getMessage());
+            System.out.println(e);
         }
+
     }
 
+    public void LlavesTablas(List<Tabla> listaTablas){
+        for (int i = 0; i < listaTablas.size(); i++) {
+            listaTablas.get(i).setPuente(identificacionPuente);
+            for (int j = 0; j < listaTablas.get(i).getFilaList().size(); j++) {
+                listaTablas.get(i).getFilaList().get(j).setTabla(listaTablas.get(i));
+                for (int k = 0; k < listaTablas.get(i).getFilaList().get(j).getColumnaList().size(); k++) {
+                    listaTablas.get(i).getFilaList().get(j).getColumnaList().get(k).setFila(listaTablas.get(i).getFilaList().get(j));
+                }
+            }
+        }
+    }
+    
+    public void handleImage(FileUploadEvent event) {
+        image = event.getFile();
+        nameImage = event.getFile().getFileName();
+    }
+
+//    public void upload() {
+//        if (image != null) {
+//            FacesMessage message = new FacesMessage("Successful", image.getFileName() + " is uploaded.");
+//            FacesContext.getCurrentInstance().addMessage(null, message);
+//        }
+//    }
     public void addMessage(String summary) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
         FacesContext.getCurrentInstance().addMessage(null, message);
@@ -174,6 +257,62 @@ public class formView implements Serializable {
         this.tablaEstriboSalida = tablaEstriboSalida;
     }
 
-    
+    public Tabla getTablaPilas() {
+        return tablaPilas;
+    }
+
+    public void setTablaPilas(Tabla tablaPilas) {
+        this.tablaPilas = tablaPilas;
+    }
+
+    public Tabla getTablaSuperEstructura() {
+        return tablaSuperEstructura;
+    }
+
+    public void setTablaSuperEstructura(Tabla tablaSuperEstructura) {
+        this.tablaSuperEstructura = tablaSuperEstructura;
+    }
+
+    public Tabla getTablaElementosNoEstructurales() {
+        return tablaElementosNoEstructurales;
+    }
+
+    public void setTablaElementosNoEstructurales(Tabla tablaElementosNoEstructurales) {
+        this.tablaElementosNoEstructurales = tablaElementosNoEstructurales;
+    }
+
+    public Tabla getTablaCarecteristicasDelCauce() {
+        return tablaCarecteristicasDelCauce;
+    }
+
+    public void setTablaCarecteristicasDelCauce(Tabla tablaCarecteristicasDelCauce) {
+        this.tablaCarecteristicasDelCauce = tablaCarecteristicasDelCauce;
+    }
+
+    public Tabla getTablaOtros() {
+        return tablaOtros;
+    }
+
+    public void setTablaOtros(Tabla tablaOtros) {
+        this.tablaOtros = tablaOtros;
+    }
+
+    public Inspector getInspector() {
+        
+        return inspector;
+    }
+
+    public void setInspector(Inspector inspector) {
+        this.inspector = inspector;
+    }
+
+    public List<Tabla> getListaTablas() {
+        return listaTablas;
+    }
+
+    public void setListaTablas(List<Tabla> listaTablas) {
+        this.listaTablas = listaTablas;
+    }
+
     
 }

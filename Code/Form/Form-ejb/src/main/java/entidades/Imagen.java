@@ -43,7 +43,7 @@ public class Imagen implements Serializable {
     @Column(name = "imagen")
     private byte[] imagen;
     @JoinColumn(name = "puente", referencedColumnName = "idIdentificacion")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private IdentificacionPuente puente;
 
     public Imagen() {

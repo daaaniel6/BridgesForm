@@ -1,0 +1,891 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./templates/template-one.xhtml">
+
+
+            <ui:define name="content">
+
+                <div class="contenedor2">
+                    <img class="logo" src="assets/img/logoUsac.jpeg" />
+                    <img class="logo" src="assets/img/logoCep.jpeg" />
+                </div>
+                <div>
+                    <img class="back" src="assets/img/puenteIzabal.jpeg" />
+                </div>
+
+                <h:form id="form">
+                    <div class="cards">
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?person" alt="wave" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+                                    <small>Inspector</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogInspector').show();" 
+                                            class="btn"
+
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?bridge" alt="beach" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+
+                                    <small>Puente</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogIdentificacion').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?mountain" alt="mountain" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+
+                                    <small>Generales</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogGeneral').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?field" alt="field" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+                                    <small>Tramos</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogTramos').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?water" alt="water" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+
+                                    <small>Estribo entrada</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogEstriboEntrada').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?river" alt="river" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+
+                                    <small>Estribo salida</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogEstriboSalida').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?kite" alt="kite" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+
+                                    <small>Pilas</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogPilas').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!-- <img class="card__image" src="https://source.unsplash.com/300x225/?underwater" alt="underwater" /> --> 
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+
+                                    <small>Super estructura</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogSuperEstructura').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+                                    <small>No estructural</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogNoEstructurales').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+                                    <small>Cauce</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogCauce').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+                                    <small>Otros</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogOtros').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__image-holder">
+                                <!--<img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />-->
+                            </div>
+                            <div class="card-title">
+                                <a href="#" class="toggle-info btn">
+                                    <span class="left"></span>
+                                    <span class="right"></span>
+                                </a>
+                                <h2>
+                                    <small>Imagen</small>
+                                </h2>
+                            </div>
+                            <div class="card-flap flap1">
+                                <div class="card-description">
+
+                                </div>
+                                <div class="card-flap flap2">
+                                    <div class="card-actions">
+                                        <p:commandLink 
+                                            onclick="PF('wdialogImagen').show();" 
+                                            class="btn"
+                                            >
+                                            Llenar datos
+                                        </p:commandLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <!--                    
+                                        
+                                        <div class="center">
+                      <div class="property-card">
+                        <a href="#">
+                          <div class="property-image">
+                            <div class="property-image-title">
+                               Optional <h5>Card Title</h5> If you want it, turn on the CSS also. 
+                            </div>
+                          </div></a>
+                        <div class="property-description">
+                          <h5> Card Title </h5>
+                          <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
+                        </div>
+                        <a href="#">
+                          <div class="property-social-icons">
+                             I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions 
+                          </div>
+                        </a>
+                      </div>
+                    </div>-->
+
+                    <p:commandLink styleClass="btn btn-success"  style="width: 100%;"
+                                   action ="#{formView.createBridge()}"
+                                   >
+                        Guardar
+                    </p:commandLink>
+
+
+
+
+                    <p:dialog  header="Datos del Inspector" widgetVar="wdialogInspector" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        
+                            <table class="table table-bordered table-striped">
+                                <tr>
+                                    <th colspan="2">Datos del inspector</th>                    
+                                </tr>
+                                <tr>
+                                    <td >Nombre</td>
+                                    <td > 
+                                        <p:inputText  value="#{formView.inspector.nombre}"    styleClass="form-control"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >Telefono</td>
+                                    <td > 
+                                        <p:inputText  value="#{formView.inspector.telefono}"    styleClass="form-control"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >Correo</td>
+                                    <td > 
+                                        <p:inputText  value="#{formView.inspector.correo}"    styleClass="form-control"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        
+                    </p:dialog>
+
+
+                    <p:dialog  header="Identifiacion del puente" widgetVar="wdialogIdentificacion" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form id="form2" >
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre del Puente</th>
+                                        <th scope="col">
+                                            <p:inputText id="nombreTxt" value="#{formView.identificacionPuente.nombre}"  required="true"  styleClass="form-control"/>
+                                        </th>
+                                        <th scope="col">Codigo</th>
+                                        <th scope="col">
+                                            <p:inputText id="codigoTxt" value="#{formView.identificacionPuente.codigo}"  required="true"  styleClass="form-control"/>
+                                        </th>
+                                        <th scope="col">Ruta</th>
+                                        <th scope="col">
+                                            <p:inputText id="rutaTxt" value="#{formView.identificacionPuente.ruta}"    styleClass="form-control"/>
+                                        </th>
+                                        <th scope="col">Kilometraje</th>
+                                        <th scope="col">
+                                            <p:inputText id="kilometrajeTxt" value="#{formView.identificacionPuente.kilometraje}"    styleClass="form-control"/>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Departamento</th>
+                                        <td colspan="2">
+                                            <p:inputText id="departamentoTxt" value="#{formView.identificacionPuente.departamento}"    styleClass="form-control"/>
+                                        </td>
+                                        <th scope="row">Municipio</th>
+                                        <td colspan="2">
+                                            <p:inputText id="municipioTxt" value="#{formView.identificacionPuente.municipio}"    styleClass="form-control"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Ruta Pavimentada</th>
+                                        <td>
+                                            <p:selectOneMenu  id="pavSelectOneMenu"  value="#{formView.identificacionPuente.rutaPavimentada}" >
+                                                <f:selectItem itemLabel="Si" itemValue="Si"/>
+                                                <f:selectItem itemLabel="No" itemValue="No"/>
+                                                <f:selectItem itemLabel="Parcial" itemValue="Parcial"/>
+                                            </p:selectOneMenu>
+                                        </td>
+                                        <td>
+                                            Alineamiento horizontal
+                                        </td>
+                                        <td >
+                                            <p:selectOneMenu id="alineamientoSelectOneMenu"  value="#{formView.identificacionPuente.alineamientoHorizontal}" >
+                                                <f:selectItem itemLabel="Tangente" itemValue="Tangente"/>
+                                                <f:selectItem itemLabel="Curva" itemValue="Curva"/>
+
+                                            </p:selectOneMenu>
+                                        </td>
+                                        <td>
+                                            Esviaje/Sesgo
+                                        </td>
+                                        <td >
+                                            <p:selectOneMenu id="esviajeSelectOneMenu"  value="#{formView.identificacionPuente.esviaje}" >
+                                                <f:selectItem itemLabel="Si" itemValue="Si"/>
+                                                <f:selectItem itemLabel="No" itemValue="No"/>
+                                            </p:selectOneMenu>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">coordenadas UTM</th>
+                                        <td >Norte</td>
+                                        <td>
+                                            <p:inputText id="norteTxt" value="#{formView.identificacionPuente.coordenadasUtmN}"    styleClass="form-control"/>
+                                        </td>
+                                        <td >Este</td>
+                                        <td>
+                                            <p:inputText id="esteTxt" value="#{formView.identificacionPuente.coordenadasUtmE}"    styleClass="form-control"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">Poblacion antes del puente (Nombre)</td>
+                                        <td colspan="2">
+                                            <p:inputText id="antesTxt" value="#{formView.identificacionPuente.poblacionAntes}"    styleClass="form-control"/>
+                                        </td >
+                                    </tr>    
+                                    <tr>
+                                        <td colspan="2">Poblacion despues del puente (Nombre)</td>
+                                        <td colspan="2">
+                                            <p:inputText id="despuesTxt" value="#{formView.identificacionPuente.poblacionDespues}"    styleClass="form-control"/>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="Datos generales" widgetVar="wdialogGeneral" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <table class="table table-bordered table-striped">
+                                <tr>
+                                    <th >Longitud (m)</th>
+                                    <th >
+                                        <p:spinner value="#{formView.datosGenerales.longitud}" stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+                                    </th>
+                                    <th >Numero de tramos</th>
+                                    <td >
+                                        <p:spinner  value="#{formView.datosGenerales.numeroTramos}" min="0"  stepFactor="1" />
+                                    </td>
+                                    <th >Ancho rodadura (m)</th>
+                                    <td >
+                                        <p:spinner value="#{formView.datosGenerales.anchoRodadura}" stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+                                    </td>
+                                    <th >Ancho acera (m) der.</th>
+                                    <td >
+                                        <p:spinner value="#{formView.datosGenerales.anchoAceraDer}"  stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+                                    </td>
+                                    <th >Ancho acera (m) izq.</th>
+                                    <td >
+                                        <p:spinner value="#{formView.datosGenerales.anchoAceraIzq}"  stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Tipologia del puente</td>
+                                    <td colspan="2" > 
+                                        <p:inputText  value="#{formView.datosGenerales.tipologiaPuente}"    styleClass="form-control"/>
+                                    </td>
+                                    <td colspan="2">Altura libre superior (m)</td>
+                                    <td>
+                                        <p:spinner value="#{formView.datosGenerales.alturaLibreSuperior}"  stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+                                    </td>
+                                    <td colspan="2">Altura libre sobre el rio (m)</td>
+                                    <td>
+                                        <p:spinner value="#{formView.datosGenerales.alturaLibreSobreRio}"  stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Puente sobre</td>
+                                    <td colspan="2" > 
+                                        <p:selectOneMenu  value="#{formView.datosGenerales.puenteSobre}" editable="true" placeholder="Otro...(escriba)">
+                                            <f:selectItem itemLabel="Rio" itemValue="Rio"/>
+                                            <f:selectItem itemLabel="Quebrada" itemValue="Quebrada"/>
+                                            <f:selectItem itemLabel="Carretera" itemValue="Carretera"/>
+                                            <f:selectItem itemLabel="Linea ferrea" itemValue="Linea ferrea"/>
+                                        </p:selectOneMenu>
+                                    </td>
+                                    <td colspan="2">Numero de vias en cada sentido</td>
+                                    <td>
+                                        <p:spinner  value="#{formView.datosGenerales.numeroVias}" min="0"  stepFactor="1" />
+
+                                    </td>
+                                    <td colspan="2">Material superestructura</td>
+                                    <td>
+                                        <p:inputText  value="#{formView.datosGenerales.materialSuperestructura}"    styleClass="form-control"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Carga de diseño</td>
+                                    <td colspan="2" > 
+                                        <p:inputText  value="#{formView.datosGenerales.cargaDisenio}"    styleClass="form-control"/>
+                                    </td>
+                                    <td colspan="2">Año de construccion</td>
+                                    <td>
+                                        <p:spinner  value="#{formView.datosGenerales.anioConstruccion}" min="0"  stepFactor="1" />
+                                    </td>
+                                    <td colspan="2">Material subestructura</td>
+                                    <td>
+                                        <p:inputText  value="#{formView.datosGenerales.materialSubestructura}"    styleClass="form-control"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Trafico (vehiculos/dia)</td>
+                                    <td colspan="2" > 
+                                        <p:spinner value="#{formView.datosGenerales.trafico}"  stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+                                    </td>
+                                    <td colspan="2">% Camiones y buses</td>
+                                    <td>
+                                        <p:spinner value="#{formView.datosGenerales.porcentajeCamionesBuses}"  stepFactor="0.01">
+                                            <f:convertNumber maxFractionDigits="5"/>
+                                        </p:spinner>
+                                    </td>
+                                    <td colspan="2">Fecha ultima evaluacion</td>
+                                    <td>
+                                        <p:datePicker value="#{formView.datosGenerales.fechaUltimaEvaluacion}"  locale="es" monthNavigator="true"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="Datos de los tramos" widgetVar="wdialogTramos" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <table class="table table-bordered table-striped">
+                                <tr>
+                                    <th colspan="2">Tramo 1</th>
+                                    <th colspan="2">Tramo 2</th>
+                                    <th colspan="2">Tramo 3</th>
+                                    <th colspan="2">Otros</th>
+                                </tr>
+                                <tr>
+                                    <td >Longitud</td>
+                                    <td > 
+                                        <p:spinner  value="#{formView.tramo1.longitud}" min="0"  stepFactor="1" />
+                                    </td>
+                                    <td >Longitud</td>
+                                    <td > 
+                                        <p:spinner  value="#{formView.tramo2.longitud}" min="0"  stepFactor="1" />
+                                    </td><!-- comment -->
+                                    <td >Longitud</td>
+                                    <td > 
+                                        <p:spinner  value="#{formView.tramo3.longitud}" min="0"  stepFactor="1" />
+                                    </td>
+                                    <td >Longitud</td>
+                                    <td > 
+                                        <p:spinner  value="#{formView.tramo4.longitud}" min="0"  stepFactor="1" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >Tipo seccion</td>
+                                    <td > 
+                                        <p:inputText  value="#{formView.tramo1.tipoSeccion}"    styleClass="form-control"/>
+                                    </td>
+                                    <td colspan="2"> 
+                                        <p:inputText  value="#{formView.tramo2.tipoSeccion}"    styleClass="form-control"/>
+                                    </td> 
+                                    <td colspan="2"> 
+                                        <p:inputText  value="#{formView.tramo3.tipoSeccion}"    styleClass="form-control"/>
+                                    </td>
+                                    <td colspan="2"> 
+                                        <p:inputText  value="#{formView.tramo4.tipoSeccion}"    styleClass="form-control"/>
+                                    </td>
+                                </tr>   
+                            </table>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="SUB-ESTRUCTURA: Estribo entrada" widgetVar="wdialogEstriboEntrada" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true"
+                               blockScroll="true" 
+                               >
+                        <h:form >
+                            <ui:repeat value="#{formView.tablaEstriboEntrada.filaList}" var="item"  varStatus="estado">
+
+                                <div style="width: 500px">
+                                    <p:accordionPanel  multiple="false" widgetVar="multiple">
+                                        <p:tab title="#{item.nombre}" >
+
+                                            <p:dataTable  class="table table-bordered table-striped"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                                <p:column headerText="Nombre"  >
+                                                    <h:outputText value="#{supply.nombre}" />
+                                                </p:column>
+                                                <p:column headerText="Atributo">
+                                                    <h:inputText value="#{supply.atributo}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </p:tab>
+                                    </p:accordionPanel>
+                                </div>
+
+                            </ui:repeat>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog   header="SUB-ESTRUCTURA: Estribo salida" widgetVar="wdialogEstriboSalida" 
+                                modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <p:repeat value="#{formView.tablaEstriboSalida.filaList}" var="item"  varStatus="estado">
+
+                                <div style="width: 500px">
+                                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                                        <p:tab title="#{item.nombre}">
+                                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                                <p:column headerText="Nombre"  >
+                                                    <h:outputText value="#{supply.nombre}" />
+                                                </p:column>
+                                                <p:column headerText="Atributo">
+                                                    <h:inputText value="#{supply.atributo}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </p:tab>
+                                    </p:accordionPanel>
+                                </div>
+
+                            </p:repeat>
+                        </h:form>
+                    </p:dialog><!-- comment -->
+
+                    <p:dialog   header="SUB-ESTRUCTURA: Pilas" widgetVar="wdialogPilas" 
+                                modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <p:repeat value="#{formView.tablaPilas.filaList}" var="item"  varStatus="estado">
+                                <div style="width: 500px">
+                                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                                        <p:tab title="#{item.nombre}">
+                                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                                <p:column headerText="Nombre"  >
+                                                    <h:outputText value="#{supply.nombre}" />
+                                                </p:column>
+                                                <p:column headerText="Atributo">
+                                                    <h:inputText value="#{supply.atributo}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </p:tab>
+                                    </p:accordionPanel>
+                                </div>
+                            </p:repeat>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="Datos de la Super-Estructura" widgetVar="wdialogSuperEstructura" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <p:repeat value="#{formView.tablaSuperEstructura.filaList}" var="item"  varStatus="estado">
+                                <div style="width: 500px">
+                                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                                        <p:tab title="#{item.nombre}">
+                                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                                <p:column headerText="Nombre"  >
+                                                    <h:outputText value="#{supply.nombre}" />
+                                                </p:column>
+                                                <p:column headerText="Atributo">
+                                                    <h:inputText value="#{supply.atributo}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </p:tab>
+                                    </p:accordionPanel>
+                                </div>
+                            </p:repeat>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="Elementos no estructurales" widgetVar="wdialogNoEstructurales" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <p:repeat value="#{formView.tablaElementosNoEstructurales.filaList}" var="item"  varStatus="estado">
+                                <div style="width: 500px">
+                                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                                        <p:tab title="#{item.nombre}">
+                                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                                <p:column headerText="Nombre"  >
+                                                    <h:outputText value="#{supply.nombre}" />
+                                                </p:column>
+                                                <p:column headerText="Atributo">
+                                                    <h:inputText value="#{supply.atributo}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </p:tab>
+                                    </p:accordionPanel>
+                                </div>
+                            </p:repeat>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="Caracteristicas del cauce" widgetVar="wdialogCauce" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <p:repeat value="#{formView.tablaCarecteristicasDelCauce.filaList}" var="item"  varStatus="estado">
+                                <div style="width: 500px">
+                                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                                        <p:tab title="#{item.nombre}">
+                                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                                <p:column headerText="Nombre"  >
+                                                    <h:outputText value="#{supply.nombre}" />
+                                                </p:column>
+                                                <p:column headerText="Atributo">
+                                                    <h:inputText value="#{supply.atributo}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </p:tab>
+                                    </p:accordionPanel>
+                                </div>
+                            </p:repeat>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="Otros datos" widgetVar="wdialogOtros" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <p:repeat value="#{formView.tablaOtros.filaList}" var="item"  varStatus="estado">
+                                <div style="width: 500px">
+                                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                                        <p:tab title="#{item.nombre}">
+                                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                                <p:column headerText="Nombre"  >
+                                                    <h:outputText value="#{supply.nombre}" />
+                                                </p:column>
+                                                <p:column headerText="Atributo">
+                                                    <h:inputText value="#{supply.atributo}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </p:tab>
+                                    </p:accordionPanel>
+                                </div>
+                            </p:repeat>
+                        </h:form>
+                    </p:dialog>
+
+                    <p:dialog  header="Imagen del puente" widgetVar="wdialogImagen" 
+                               modal="true" resizable="false" closeOnEscape="true" draggable="false" showEffect="explode" fitViewport="true">
+                        <h:form >
+                            <p:fileUpload  fileUploadListener="#{formView.handleImage}"
+                                           styleClass="in-dialog"
+                                           skinSimple="true" auto="true" allowTypes="/(\.|\/)(jpg|png|jpeg|gif|pdf)$/"
+                                           label="Seleccionar"
+                                           invalidFileMessage="Solo se puede cargar archivos jpg, png, jpeg,gif,pdf"
+                                           />
+                        </h:form>
+                    </p:dialog>
+                
+</h:form>
+
+
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

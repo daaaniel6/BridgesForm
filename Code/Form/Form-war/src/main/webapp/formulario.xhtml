@@ -59,10 +59,10 @@ and open the template in the editor.
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto active" href="index.xhtml">Inicio</a></li>
-                        <li><a class="nav-link scrollto" href="#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-                        <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-                        <li><a class="nav-link scrollto" href="#team">Equipo</a></li>
+                        <li><a class="nav-link scrollto" href="index.xhtml">About</a></li>
+                        <li><a class="nav-link scrollto" href="index.xhtml">Servicios</a></li>
+                        <li><a class="nav-link scrollto " href="index.xhtml">Portfolio</a></li>
+                        <li><a class="nav-link scrollto" href="index.xhtml">Equipo</a></li>
                         <li class="dropdown"><a href="#"><span>Cursos</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li><a href="#">Fluidos</a></li>
@@ -112,6 +112,31 @@ and open the template in the editor.
 
         <h:form id="formData" enctype="multipart/form-data">
 
+            
+            <table class="table table-bordered table-dark">
+                <tr>
+                    <th colspan="2">Datos del inspector</th>                    
+                </tr>
+                <tr>
+                    <td >Nombre</td>
+                    <td > 
+                        <p:inputText  value="#{formView.inspector.nombre}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Telefono</td>
+                    <td > 
+                        <p:inputText  value="#{formView.inspector.telefono}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Correo</td>
+                    <td > 
+                        <p:inputText  value="#{formView.inspector.correo}"    styleClass="form-control"/>
+                    </td>
+                </tr>
+                
+            </table>
 
             <table class="table table-bordered table-dark">
                 <thead>
@@ -566,6 +591,101 @@ and open the template in the editor.
                 </div>
 
             </p:repeat>
+
+            <h1>Pilas</h1>
+            <p:repeat value="#{formView.tablaPilas.filaList}" var="item"  varStatus="estado">
+                <div class="card">
+                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                        <p:tab title="#{item.nombre}">
+                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                <p:column headerText="Nombre"  >
+                                    <h:outputText value="#{supply.nombre}" />
+                                </p:column>
+                                <p:column headerText="Atributo">
+                                    <h:inputText value="#{supply.atributo}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+                    </p:accordionPanel>
+                </div>
+            </p:repeat>
+            <h1>Super-Estructura</h1>
+            <p:repeat value="#{formView.tablaSuperEstructura.filaList}" var="item"  varStatus="estado">
+                <div class="card">
+                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                        <p:tab title="#{item.nombre}">
+                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                <p:column headerText="Nombre"  >
+                                    <h:outputText value="#{supply.nombre}" />
+                                </p:column>
+                                <p:column headerText="Atributo">
+                                    <h:inputText value="#{supply.atributo}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+                    </p:accordionPanel>
+                </div>
+            </p:repeat>
+            <h1>Elementos no estructurales</h1>
+            <p:repeat value="#{formView.tablaElementosNoEstructurales.filaList}" var="item"  varStatus="estado">
+                <div class="card">
+                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                        <p:tab title="#{item.nombre}">
+                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                <p:column headerText="Nombre"  >
+                                    <h:outputText value="#{supply.nombre}" />
+                                </p:column>
+                                <p:column headerText="Atributo">
+                                    <h:inputText value="#{supply.atributo}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+                    </p:accordionPanel>
+                </div>
+            </p:repeat>
+            <h1>Caracteristicas del cauce</h1>
+            <p:repeat value="#{formView.tablaCarecteristicasDelCauce.filaList}" var="item"  varStatus="estado">
+                <div class="card">
+                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                        <p:tab title="#{item.nombre}">
+                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                <p:column headerText="Nombre"  >
+                                    <h:outputText value="#{supply.nombre}" />
+                                </p:column>
+                                <p:column headerText="Atributo">
+                                    <h:inputText value="#{supply.atributo}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+                    </p:accordionPanel>
+                </div>
+            </p:repeat>
+            <h1>Otros</h1>
+            <p:repeat value="#{formView.tablaOtros.filaList}" var="item"  varStatus="estado">
+                <div class="card">
+                    <p:accordionPanel  multiple="true" widgetVar="multiple">
+                        <p:tab title="#{item.nombre}">
+                            <p:dataTable class="table table-bordered table-dark"  var="supply" value="#{item.columnaList}" emptyMessage="No hay insumos disponibles">
+                                <p:column headerText="Nombre"  >
+                                    <h:outputText value="#{supply.nombre}" />
+                                </p:column>
+                                <p:column headerText="Atributo">
+                                    <h:inputText value="#{supply.atributo}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+                    </p:accordionPanel>
+                </div>
+            </p:repeat>
+
+
+            <p:outputLabel  value="Imagen:"/>
+            <p:fileUpload  fileUploadListener="#{formView.handleImage}"
+                           styleClass="in-dialog"
+                           skinSimple="true" auto="true" allowTypes="/(\.|\/)(jpg|png|jpeg|gif|pdf)$/"
+                           label="Seleccionar"
+                           invalidFileMessage="Solo se puede cargar archivos jpg, png, jpeg,gif,pdf"
+                           />
 
             <p:commandLink styleClass="btn btn-success"  style="width: 100%;"
                            update="@form,growl"
